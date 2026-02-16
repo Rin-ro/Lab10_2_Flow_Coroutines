@@ -27,8 +27,6 @@ public fun SharedFlowScreen(modifier: Modifier) {
     val scope = rememberCoroutineScope()
     var autoGenerationJob by remember { mutableStateOf<Job?>(null) }
     var isAutoGenerating by remember { mutableStateOf(false) }
-
-    // Сбор событий
     LaunchedEffect(Unit) {
         eventsFlow.collect { event ->
             events = (events + event).takeLast(10)

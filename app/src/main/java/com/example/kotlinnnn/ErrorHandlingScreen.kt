@@ -11,8 +11,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
-
-// 1. Опасная операция
 public suspend fun riskyOperation(success: Boolean): String {
     delay(1000)
     if (!success) {
@@ -20,8 +18,6 @@ public suspend fun riskyOperation(success: Boolean): String {
     }
     return "Операция выполнена успешно"
 }
-
-// 2. Опасный Flow
 fun riskyFlow(): kotlinx.coroutines.flow.Flow<String> = flow {
     emit("Шаг 1")
     delay(500)
@@ -32,8 +28,6 @@ fun riskyFlow(): kotlinx.coroutines.flow.Flow<String> = flow {
 }.catch { exception ->
     emit("Ошибка обработана: ${exception.message}")
 }
-
-// 3. Безопасная операция
 suspend fun safeOperation(success: Boolean): Result<String> {
     return try {
         delay(1000)
@@ -46,8 +40,6 @@ suspend fun safeOperation(success: Boolean): Result<String> {
         Result.failure(e)
     }
 }
-
-// 4. Экран
 @Composable
 fun ErrorHandlingScreen(modifier: Modifier) {
     var result by remember { mutableStateOf<String?>(null) }

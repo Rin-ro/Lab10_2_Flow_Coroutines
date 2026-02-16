@@ -11,22 +11,16 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.Dispatchers
-
-// 1. Долгая операция
 public suspend fun simulateLongOperation(duration: Long): String {
     delay(duration)
     return "Операция завершена за $duration мс"
 }
-
-// 2. Сумма чисел
 suspend fun calculateSum(numbers: List<Int>): Int {
     return withContext(Dispatchers.Default) {
         delay(1000)
         numbers.sum()
     }
 }
-
-// 3. Экран
 @Composable
 public fun CoroutinesScreen(modifier: Modifier) {
     var isLoading by remember { mutableStateOf(false) }

@@ -12,20 +12,15 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-// 1. Поток чисел
 public fun numberFlow(): Flow<Int> = flow {
     for (i in 1..10) {
         delay(500)
         emit(i)
     }
 }
-
-// 2. Преобразованный поток
 fun transformedFlow(flow: Flow<Int>): Flow<Int> = flow
     .map { it * it }
     .filter { it % 2 == 0 }
-
-// 3. Поток с ошибкой
 fun errorFlow(): Flow<String> = flow {
     emit("Первое значение")
     delay(500)
@@ -35,8 +30,6 @@ fun errorFlow(): Flow<String> = flow {
 }.catch { exception ->
     emit("Ошибка обработана: ${exception.message}")
 }
-
-// 4. Экран
 @Composable
 fun FlowScreen(modifier: Modifier) {
     var flowValues by remember { mutableStateOf<List<String>>(emptyList()) }

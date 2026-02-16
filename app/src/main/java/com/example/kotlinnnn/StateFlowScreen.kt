@@ -38,8 +38,6 @@ public fun StateFlowScreen(modifier: Modifier) {
             }
         }
     }
-
-    // Отмена при выходе
     DisposableEffect(Unit) {
         onDispose {
             autoIncrementJob?.cancel()

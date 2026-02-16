@@ -13,22 +13,22 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
-                CoroutinesScreen(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(start = 16.dp,
-                            top = 266.dp,
-                            end = 16.dp,
-                            bottom = 16.dp)
-                )
-            }
+//            MaterialTheme {
+//                CoroutinesScreen(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(start = 16.dp,
+//                            top = 266.dp,
+//                            end = 16.dp,
+//                            bottom = 16.dp)
+//                )
+//            }
 //            MaterialTheme {
 //                FlowScreen(
 //                    modifier = Modifier
 //                        .fillMaxSize()
 //                        .padding(start = 16.dp,
-//                            top = 266.dp,
+//                            top = 26.dp,
 //                            end = 16.dp,
 //                            bottom = 16.dp)
 //                )
@@ -53,16 +53,16 @@ class MainActivity : ComponentActivity() {
 //                            bottom = 16.dp)
 //                )
 //            }
-//            MaterialTheme {
-//                ErrorHandlingScreen(
-//                    modifier = Modifier
-//                        .fillMaxSize()
-//                        .padding(start = 16.dp,
-//                            top = 266.dp,
-//                            end = 16.dp,
-//                            bottom = 16.dp)
-//                )
-//            }
+            MaterialTheme {
+                ErrorHandlingScreen(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(start = 16.dp,
+                            top = 266.dp,
+                            end = 16.dp,
+                            bottom = 16.dp)
+                )
+            }
         }
     }
 }
